@@ -57,7 +57,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </div>
 </div>
 
-<div class="main">     
+<div class="main">  
         <?= $this->fetch('content') ?>      
 </div>
 
