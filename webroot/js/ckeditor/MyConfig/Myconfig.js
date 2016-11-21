@@ -8,8 +8,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'el';
 	//config.uiColor = '#9CBEE4';
         config.entities = false;
-        config.height = 400;
-        config.width = '85%';
+        config.height = 360;
+        config.width = '99%';
         //config.width = 1000;
         config.removePlugins = 'liststyle,tabletools,scayt,menubutton,contextmenu,language';
 };

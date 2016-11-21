@@ -32,10 +32,18 @@
         </li>
     </ul>
 </nav>
-<!-- start article edit form -->
-<?= $this->Form->create($article, array('type' => 'file')) ?>
+<!-- start article edit form --> 
+<br/>
+<?= $this->Form->create($article, array('type' => 'file', 'class' => 'form')) ?>
     <fieldset>
-        <legend class="text-primary"><?= __('Edit Article') ?></legend>
+    <legend class="text-primary"><?= __('Edit Article') ?></legend>
+                
+   <div class="card card-outline-secondary">    
+    <?= $this->Form->button($this->Html->tag('span', '', array('class' => 'fa fa-check-square-o fa-lg')).  __('&nbsp;Save'), 
+                array('escape'=>false,'class' => 'btn btn-sm btn-success','formnovalidate' => true)    
+    ) ?>      
+  </div> 
+        <hr/>
         <div class="form-group">
         <?= $this->Form->label('title', ' <span class="fa fa-question-circle-o"></span> '.__('Article Title'), array(
         'class' => 'help',
@@ -88,15 +96,12 @@
         'type'=>'textarea',
         'class' => 'form-control','rows' => '14',
         'label' => __('Article Body'),
+        'div' => 'false',
         )) 
         ?>
         </div>  
     </fieldset>    
-  <div class="form-group">    
-    <?= $this->Form->button($this->Html->tag('span', '', array('class' => 'fa fa-check-square-o fa-lg')).  __('&nbsp;Save'), 
-                array('escape'=>false,'class' => 'btn btn-lg btn-success')    
-    ) ?>      
-  </div><!-- end article edit form -->   
+<!-- end article edit form -->   
 <?= $this->Form->end() ?>
 </div>     
         

@@ -26,17 +26,7 @@ $(document).ready(function() {
         
 // ks-app addons        
         
-  $('.hasoverlay').append('<span class="fa fa-search-plus overlay-icon"></span>')      
-  $('.required').parent().before('<span class="required"> *</span>')           
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  $('.hasoverlay').append('<span class="fa fa-search-plus overlay-icon"></span>');        
+              
         
 });
