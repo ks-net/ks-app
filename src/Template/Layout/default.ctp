@@ -53,7 +53,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <div class="row clearfix">
 <div class="container">     
-<div class=""> <?= $this->Flash->render() ?> </div>
+<div class=""><?= $this->Flash->render() ?></div>
 </div>
 </div>
 
