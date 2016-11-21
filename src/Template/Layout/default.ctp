@@ -69,7 +69,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <div class="container">  
           <h1 class="display-3">Hello, world!</h1>
           <p>Just a little demo here...</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Push Up Again ^</a></p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Push Up Again .^</a></p>
 </div>       
 </div>
 </footer>
