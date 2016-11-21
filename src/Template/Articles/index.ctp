@@ -11,7 +11,7 @@
                 </li>
         <li class="nav-item">
         <?= $this->Html->link(
-                $this->Html->tag('span', '', array('class' => 'fa fa-list fa-lg')).__('&nbsp;List Articles'),
+                $this->Html->tag('span', '', array('class' => 'fa fa-list fa-lg')).__(' List Articles'),
                 array('action' => 'index'), 
                 array('escape'=>false,'class' => 'nav-link active')
         ) ?>
