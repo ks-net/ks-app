@@ -9,7 +9,15 @@
                         array('escape'=>false,'class' => 'nav-link')
                 ) ?>
         </li>
-        <li class="nav-item">
+        <li class="nav-item">            
+                <?= $this->Html->link(
+                        $this->Html->tag('span', '', array('class' => 'fa fa-pencil-square-o fa-lg')).__('&nbsp;Edit Article'),
+                        array('action' => 'edit', $article->id), 
+                        array('escape'=>false,'class' => 'nav-link')
+                ) ?>    
+            
+         </li>
+        <li class="nav-item">                     
                 <?= $this->Form->postLink(
                         $this->Html->tag('span', '', array('class' => 'fa fa-trash fa-lg')). __('&nbsp;Delete'),
                         array('action' => 'delete', $article->id),array(

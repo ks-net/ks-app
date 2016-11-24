@@ -35,10 +35,9 @@ body {/*font-family:"Open Sans";font-size:14px;*/}
     content: " \2191";
 }
 
+.flash-msg {padding:20px 6px;}
 
 .form {font-weight:300;font-size:14px;line-height:18px;font-family:Arial,sans-serif;}
-
-
 
 .required > label {
     font-weight: bold;
@@ -47,7 +46,6 @@ body {/*font-family:"Open Sans";font-size:14px;*/}
     content: ' *';
     color: #C3232D;
 }
-
 
 .form .error-message {
     display:block;

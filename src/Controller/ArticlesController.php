@@ -23,19 +23,16 @@ class ArticlesController extends AppController
         $articles = $this->paginate($this->Articles);
 
         $this->set(compact('articles'));
-        $this->set('_serialize', ['articles']);
-
-      
+        $this->set('_serialize', ['articles']);      
     }
-    
- /**
- *  Paginator Default Short Order 
- */   
+
+
+    /**
+    *  Paginator Default Short Order 
+    */   
         public $paginate = [
         'limit' => 6,
-        'order' => [
-            'Articles.created' => 'desc'
-                ]
+        'order' => ['Articles.created' => 'desc']
         ];
 
         public function initialize()
@@ -45,30 +42,28 @@ class ArticlesController extends AppController
         }
  
 
-/*
-*  Prev - Next Links
-*/
-        public function neighbors() { // @TODO NOT WORKING
-
+    /*
+    *  Prev - Next Links
+    */
+        public function neighbors($id = null) { // @TODO NOT WORKING
+            
+        $articles = $this->Articles->get($id);
         $nquery = $articles->find('all', [
                 'order' => ['Articles.created' => 'DESC']
                 ]);
-
                 $next = $nquery->first();
-
 
         $pquery = $articles->find('all', [
                 'order' => ['Articles.created' => 'ASC']
                 ]);
-
                 $pre = $pquery->first();
 
-         $this->set('pre', $pre);  
-   
+         $this->set('pre', $pre); 
+         $this->set('next', $next); 
         }
          
 
-    /********************************************************
+    /*
      * View method
      *
      * @param string|null $id Article id.
@@ -85,7 +80,7 @@ class ArticlesController extends AppController
         $this->set('_serialize', ['article']);
     }
 
-    /*****************************************************
+    /*
      * Add method
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
@@ -119,19 +114,21 @@ move_uploaded_file($this->request->data['img']['tmp_name'],$uploadFile);
     }
 
     
-    /***************************************************
+    /*
      * Edit method
      *
      * @param string|null $id Article id.
      * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-     public function edit($id = null)
-    {
+public function edit($id = null)
+    {  
         $article = $this->Articles->get($id, [
             'contain' => []
         ]);
-                      
+          
+     $this->set('title', 'Edit Article');  
+     $this->viewBuilder()->layout('default');                        
 if ($this->request->is(['patch', 'post', 'put'])) {
                            
  //////////////// INTRO IMAGE UPLOAD ///////////// TODO -> ADD VALIDATORS
@@ -181,7 +178,7 @@ $setNewFileName = time() . "_" . rand(000000, 999999);
         $this->set('_serialize', ['article']);
     }
 
-    /****************************************************************
+    /*
      * Delete method
      *
      * @param string|null $id Article id.

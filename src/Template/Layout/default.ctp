@@ -32,33 +32,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
-<div class="container-fluid">
-<div class="row clearfix">
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
-    </nav>
+<body style="margin-top:50px;">
+<div class="row clearfix">    
+<div class="container-fluid">   
+ <?=  $this->element('navbar') ?>      
 </div>
 </div>
+  
+<?php if ($this->Flash): ?>
+<div class="container flash-msg">
+<?= $this->Flash->render() ?>
+</div>
+<?php endif; ?>    
 
-<div class="row clearfix">
-<div class="container">     
-<div class=""> <?= $this->Flash->render() ?> </div>
-</div>
-</div>
-
-<div class="main">  
-        <?= $this->fetch('content') ?>      
+<div class="main">
+<?= $this->fetch('content') ?>      
 </div>
 
    
@@ -68,6 +56,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           <h1 class="display-3">Hello, world!</h1>
           <p>Just a little demo here...</p>
           <p><a class="btn btn-primary btn-lg" href="#" role="button">Push Up Again  <span class="fa fa-level-up" aria-hidden="true"></span></a></p>
+          <p>and more here...
+        ::  <a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a> ::
+         <a target="_blank" href="http://api.cakephp.org/3.0/">API</a>  :: 
+          </p> 
+          <p class="pull-right text-muted">
+              <span class="fa fa-facebook-square fa-3x"></span>
+              <span class="fa fa-twitter-square fa-3x"></span>
+              <span class="fa fa-google-plus-square fa-3x"></span>
+              <span class="fa fa-linkedin-square fa-3x"></span>
+          </p>
 </div>       
 </div>
 </footer>
@@ -76,15 +74,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?=  $this->Html->script('bootstrap/tether.min.js') ?>
 <?=  $this->Html->script('bootstrap/bootstrap.min.js') ?>
 <?=  $this->Html->script('fancybox/jquery.fancybox.pack.js') ?>
-<?=  $this->Html->script('ks-app.js') ?> 
-<?=  $this->Html->script('ckeditor/ckeditor.js') ?>
+<?=  $this->Html->script('ks-app.js') ?>
+    
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
-<script>
-    CKEDITOR.replace( 'body', { customConfig: 'MyConfig/Myconfig.js' } );
-</script>      
+
+<?= $this->fetch('scriptBottom') ?>     
 </body>
 </html>

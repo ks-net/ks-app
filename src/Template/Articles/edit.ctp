@@ -1,3 +1,5 @@
+<?php echo $this->assign('title', 'Edit Article'); ?>
+
 <div class="container-fluid clearfix">
 <nav class="navbar navbar-default" id="actions-sidebar">
     <ul class="nav nav-tabs">
@@ -34,15 +36,27 @@
 </nav>
 <!-- start article edit form --> 
 <br/>
+
+
+
+
+<?php echo $this->start('toolbar');
+echo $this->element('Articles/edit_toolbar');
+$this->end(); 
+?>
+
+
+
 <?= $this->Form->create($article, array('type' => 'file', 'class' => 'form')) ?>
     <fieldset>
+        
+
+
     <legend class="text-primary"><?= __('Edit Article') ?></legend>
-                
-   <div class="card card-outline-secondary">    
-    <?= $this->Form->button($this->Html->tag('span', '', array('class' => 'fa fa-check-square-o fa-lg')).  __('&nbsp;Save'), 
-                array('escape'=>false,'class' => 'btn btn-sm btn-success','formnovalidate' => true)    
-    ) ?>      
-  </div> 
+
+<?= $this->fetch('toolbar') ?> 
+
+ 
         <hr/>
         <div class="form-group">
         <?= $this->Form->label('title', ' <span class="fa fa-question-circle-o"></span> '.__('Article Title'), array(
@@ -103,5 +117,9 @@
     </fieldset>    
 <!-- end article edit form -->   
 <?= $this->Form->end() ?>
-</div>     
-        
+</div>  
+
+<?php echo $this->start('scriptBottom');?>
+<?=  $this->Html->script('ckeditor/ckeditor.js') ?>
+<script> CKEDITOR.replace( 'body', { customConfig: 'MyConfig/Myconfig.js' } ); </script>
+<?php $this->end(); ?>

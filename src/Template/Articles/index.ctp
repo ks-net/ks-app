@@ -31,18 +31,27 @@
             <tr class="table-default table-active">
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                <th class="hidden-sm-down" scope="col"><?= $this->Paginator->sort('created') ?></th>
+                <th class="hidden-sm-down" scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
-<?php foreach ($articles as $article): ?>
+            
+<?php foreach ($articles as $article): 
+    
+    $ttitle = $this->Text->truncate($article->title, 48, array(
+        'ellipsis' => '...',
+        'exact' => false,
+        'html' => false
+            )
+        );
+    ?>
             <tr>
                 <td><?= $this->Number->format($article->id) ?></td>
-                <td><?= h($article->title) ?></td>
-                <td><?= h($article->created) ?></td>
-                <td><?= h($article->modified) ?></td>
+                <td><?= h($ttitle) ?></td>
+                <td class="hidden-sm-down"><small><?= h($article->created) ?></small></td>
+                <td class="hidden-sm-down"><small><?= h($article->modified) ?></small></td>
                 <td class="actions">
                 <?= $this->Html->link(
                 $this->Html->tag('span','', array('class' => 'fa fa-eye')).__('&nbsp;View'),
@@ -65,7 +74,7 @@
                 'class' => 'tag tag-danger',
                 'confirm' => __('Are you sure you want to delete # {0}?', $article->id))
                 ) ?>
-        </td>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -74,10 +83,10 @@
 
 <div class="card-footer">
     <div class="paginator">
-        <ul class="pagination pagination-sm">
+        <ul class="pagination">
             <?= $this->Paginator->first( __('First')) ?>
             <?= $this->Paginator->prev('«') ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['modulus' => 4,'first' => 4,'last' => 3,] ) ?>
             <?= $this->Paginator->next('»') ?>
             <?= $this->Paginator->last(__('Last')) ?>
         </ul>
