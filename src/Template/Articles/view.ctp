@@ -9,15 +9,15 @@
                         array('escape'=>false,'class' => 'nav-link')
                 ) ?>
         </li>
-        <li class="nav-item">            
+        <li class="nav-item">
                 <?= $this->Html->link(
                         $this->Html->tag('span', '', array('class' => 'fa fa-pencil-square-o fa-lg')).__('&nbsp;Edit Article'),
-                        array('action' => 'edit', $article->id), 
+                        array('action' => 'edit', $article->id),
                         array('escape'=>false,'class' => 'nav-link')
-                ) ?>    
-            
+                ) ?>
+
          </li>
-        <li class="nav-item">                     
+        <li class="nav-item">
                 <?= $this->Form->postLink(
                         $this->Html->tag('span', '', array('class' => 'fa fa-trash fa-lg')). __('&nbsp;Delete'),
                         array('action' => 'delete', $article->id),array(
@@ -25,16 +25,16 @@
                         'data-toggle'=>'tooltip',
                         'data-placement'=>'bottom',
                         'data-html'=>'true',
-                        'title'=>__('Are you sure you want to delete # {0}? <br/><b>action is not recoverable</b>', $article->id),                        
+                        'title'=>__('Are you sure you want to delete # {0}? <br/><b>action is not recoverable</b>', $article->id),
                         'class' => 'nav-link',
                         'confirm' =>__('Are you sure you want to delete # {0}?', $article->id))
-                ) 
-                ?>            
-        </li>        
+                )
+                ?>
+        </li>
         <li class="nav-item">
         <?= $this->Html->link(
                         $this->Html->tag('span', '', array('class' => 'fa fa-list fa-lg')).__(' List Articles'),
-                        array('action' => 'index'), 
+                        array('action' => 'index'),
                         array('escape'=>false,'class' => 'nav-link')
                 ) ?>
         </li>
@@ -59,7 +59,7 @@
         <tr>
             <th scope="row"><?= __('Intro Image') ?></th>
             <td> <?= h($article->img) ?></td>
-        </tr>        
+        </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($article->id) ?></td>
@@ -73,24 +73,44 @@
             <td><?= h($article->modified) ?></td>
         </tr>
     </table>
-    
+
 <div class="article-content">
-    <div class="article-title">     
+    <div class="article-title">
     <h4><?= __('Body') ?></h4>
-    </div>    
-    <div class="article-intro-img">        
-              <?= $this->Html->image('article-images/'.$article->img, array(
-              'alt' => h($article->title),
-              'class' => 'pull-left float-xs-left img-fluid img-thumbnail rounded mr-2 mb-1')
-               ) ?>      
-    </div>           
+    </div>
+    <div class="article-intro-img">
+        <?=
+        $this->Html->image('article-images/' . $article->img, [
+            'alt' => h($article->title),
+            'class' => 'pull-left float-xs-left img-fluid img-thumbnail rounded mr-2 mb-1'
+                ]
+        )
+        ?>
+    </div>
     <div class="article-text">
-        <?= //$this->Text->autoParagraph($article->body); 
+        <?= //$this->Text->autoParagraph($article->body);
         ($article->body)
-        ?> 
-    </div>    
+        ?>
+    </div>
 </div>
-    
-<?= $article->pre ?> <?= $article->next ?>
-    
+
+    <div class="next-pre-links clearfix p-2 m-2">
+        <?php
+        if ($prev) {
+            echo $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-chevron-circle-left']) .
+                    __(' Previous'), ['action' => 'view', $prev->id], ['class' => 'btn btn-secondary pull-left pre-link',
+                'escape' => false]
+            );
+        }
+        ?>
+        <?php
+        if ($next) {
+            echo $this->Html->link(__('Next ') . $this->Html->tag('i', '', ['class' => 'fa fa-chevron-circle-right']), [
+                'action' => 'view', $next->id], ['class' => 'btn btn-secondary pull-right next-link',
+                'escape' => false]
+            );
+        }
+        ?>
+    </div>
+
 </div>

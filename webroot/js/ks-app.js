@@ -14,8 +14,8 @@ $(document).ready(function() {
                     }
         
         });
-        
-        	$('.modal').fancybox({
+                // fancybox modals
+        	$('.fmodal').fancybox({
         
         	openEffect  : 'none',
 		closeEffect : 'none',
@@ -24,9 +24,12 @@ $(document).ready(function() {
         });
         
         
-// ks-app addons        
-        
+// ks-app addons                
   $('.hasoverlay').append('<span class="fa fa-search-plus overlay-icon"></span>');        
               
-        
+  
+    
+    
+    
+    
 });

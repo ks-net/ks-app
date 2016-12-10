@@ -7,19 +7,19 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Articles Model
+ * Media Model
  *
- * @method \App\Model\Entity\Article get($primaryKey, $options = [])
- * @method \App\Model\Entity\Article newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Article[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Article|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Article patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Article[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Article findOrCreate($search, callable $callback = null)
+ * @method \App\Model\Entity\Media get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Media newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Media[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Media|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Media patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Media[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Media findOrCreate($search, callable $callback = null)
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class ArticlesTable extends Table
+class MediaTable extends Table
 {
 
     /**
@@ -32,7 +32,7 @@ class ArticlesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('articles');
+        $this->table('media');
         $this->displayField('title');
         $this->primaryKey('id');
 
@@ -52,16 +52,14 @@ class ArticlesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->notEmpty('title', __('A title is required'));
+            ->requirePresence('filename', 'create')
+            ->notEmpty('filename');
 
         $validator
-            ->notEmpty('body', __('Post Body is required'));
+            ->allowEmpty('title');
 
         $validator
-            ->allowEmpty('img');
-
-        $validator
-            ->allowEmpty('published');
+            ->allowEmpty('desccription');
 
         return $validator;
     }

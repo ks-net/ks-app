@@ -7,26 +7,17 @@ body {/*font-family:"Open Sans";font-size:14px;*/}
 /*************************/
 
 
+/**
+* Font Awesome
+*/
+
+.fa-middle {vertical-align: middle!important;}
+
 
 
 /*
-* CONTENT SPECIFIC
+* Cakephp
 */
-
-.article-page { }
-.article-content { }
-.article-title { }
-.article-intro-img { }
-.article-text {font-weight:300;font-size:1rem;line-height:1.5rem;}
-.article-list-table {font-weight:300;font-size:14px;line-height:18px;font-family:Arial,sans-serif;}
-
-
-/**********************/
-
-/*
-* Helper classes
-*/
-
 
 .asc:after {
     content: " \2193";
@@ -73,4 +64,17 @@ body {/*font-family:"Open Sans";font-size:14px;*/}
 .hasoverlay:hover {opacity:1}
 .hasoverlay:hover .overlay-icon {font-size:26px;color:red;}
 
-/********************/
+
+/*
+* CONTENT SPECIFIC
+*/
+
+.article-page { }
+.article-content { }
+.article-title { }
+.article-intro-img { }
+.article-text {font-weight:300;font-size:1rem;line-height:1.5rem;}
+.article-list-table {font-weight:300;font-size:14px;line-height:18px;font-family:Arial,sans-serif;}
+
+
+.next-pre-links {clear:both;}

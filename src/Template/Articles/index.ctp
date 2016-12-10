@@ -12,7 +12,7 @@
         <li class="nav-item">
         <?= $this->Html->link(
                 $this->Html->tag('span', '', array('class' => 'fa fa-list fa-lg')).__('&nbsp;List Articles'),
-                array('action' => 'index'), 
+                array('action' => 'index'),
                 array('escape'=>false,'class' => 'nav-link active')
         ) ?>
         </li>
@@ -25,21 +25,22 @@
 <div class="card card-header bg-primary text-white">
 <?= __('Articles Listing Table') ?>
 </div>
-<div class="article-list-table table-responsive ">    
+<div class="article-list-table table-responsive ">
     <table class="table table-bordered table-sm table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr class="table-default table-active">
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('published') ?></th>
                 <th class="hidden-sm-down" scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th class="hidden-sm-down" scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
-            
-<?php foreach ($articles as $article): 
-    
+
+<?php foreach ($articles as $article):
+
     $ttitle = $this->Text->truncate($article->title, 48, array(
         'ellipsis' => '...',
         'exact' => false,
@@ -50,6 +51,7 @@
             <tr>
                 <td><?= $this->Number->format($article->id) ?></td>
                 <td><?= h($ttitle) ?></td>
+                <td><?= $article->published ?></td>
                 <td class="hidden-sm-down"><small><?= h($article->created) ?></small></td>
                 <td class="hidden-sm-down"><small><?= h($article->modified) ?></small></td>
                 <td class="actions">
@@ -84,11 +86,11 @@
 <div class="card-footer">
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first( __('First')) ?>
-            <?= $this->Paginator->prev('«') ?>
+            <?= $this->Paginator->first('<i class="fa fa-fast-backward" aria-hidden="true"></i>', ['escape' => false]) ?>
+            <?= $this->Paginator->prev('<i class="fa fa-backward" aria-hidden="true"></i>', ['escape' => false]) ?>
             <?= $this->Paginator->numbers(['modulus' => 4,'first' => 4,'last' => 3,] ) ?>
-            <?= $this->Paginator->next('»') ?>
-            <?= $this->Paginator->last(__('Last')) ?>
+            <?= $this->Paginator->next('<i class="fa fa-forward" aria-hidden="true"></i>', ['escape' => false]) ?>
+            <?= $this->Paginator->last('<i class="fa fa-fast-forward" aria-hidden="true"></i>', ['escape' => false]) ?>
         </ul>
         <div class="row">
         <div class="d-inline-block">
