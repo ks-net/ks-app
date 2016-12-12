@@ -1,9 +1,9 @@
 $(document).ready(function() {
-     
-        
- // fancybox config      
+
+
+ // fancybox config
 	$('.fancybox').fancybox({
-        
+
         	openEffect  : 'elastic',
 		closeEffect : 'elastic',
                     helpers : {
@@ -12,24 +12,27 @@ $(document).ready(function() {
                                 position: 'top'
                         }
                     }
-        
+
         });
                 // fancybox modals
         	$('.fmodal').fancybox({
-        
+
         	openEffect  : 'none',
 		closeEffect : 'none',
                 modal : 'true'
-        
+
         });
-        
-        
-// ks-app addons                
-  $('.hasoverlay').append('<span class="fa fa-search-plus overlay-icon"></span>');        
-              
-  
-    
-    
-    
-    
+
+
+
+
+
+// ks-app addons
+  $('.hasoverlay').append('<span class="fa fa-search-plus overlay-icon"></span>');
+
+
+
+
+
+
 });

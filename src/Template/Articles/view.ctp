@@ -4,14 +4,14 @@
         <li class="nav-item disabled"><a class="nav-link disabled" href="#"><?= __('Actions') ?></a></li>
         <li class="nav-item">
         <?= $this->Html->link(
-                        $this->Html->tag('span ', '', array('class' => 'fa fa-plus-circle fa-lg')).__('&nbsp;New Article'),
+                        $this->Html->tag('span ', '', array('class' => 'fa fa-plus-circle fa-lg fa-mr-3px')).__('New Article'),
                         array('action' => 'add'),
                         array('escape'=>false,'class' => 'nav-link')
                 ) ?>
         </li>
         <li class="nav-item">
                 <?= $this->Html->link(
-                        $this->Html->tag('span', '', array('class' => 'fa fa-pencil-square-o fa-lg')).__('&nbsp;Edit Article'),
+                        $this->Html->tag('span', '', array('class' => 'fa fa-pencil-square-o fa-lg fa-mr-3px')).__('Edit Article'),
                         array('action' => 'edit', $article->id),
                         array('escape'=>false,'class' => 'nav-link')
                 ) ?>
@@ -19,7 +19,7 @@
          </li>
         <li class="nav-item">
                 <?= $this->Form->postLink(
-                        $this->Html->tag('span', '', array('class' => 'fa fa-trash fa-lg')). __('&nbsp;Delete'),
+                        $this->Html->tag('span', '', array('class' => 'fa fa-trash fa-lg fa-mr-3px')). __('Delete'),
                         array('action' => 'delete', $article->id),array(
                         'escape'=>false,
                         'data-toggle'=>'tooltip',
@@ -97,15 +97,15 @@
     <div class="next-pre-links clearfix p-2 m-2">
         <?php
         if ($prev) {
-            echo $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-chevron-circle-left']) .
-                    __(' Previous'), ['action' => 'view', $prev->id], ['class' => 'btn btn-secondary pull-left pre-link',
+            echo $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-chevron-circle-left fa-mr-3px']) .
+                    __('Previous'), ['action' => 'view', $prev->id], ['class' => 'btn btn-secondary pull-left pre-link',
                 'escape' => false]
             );
         }
         ?>
         <?php
         if ($next) {
-            echo $this->Html->link(__('Next ') . $this->Html->tag('i', '', ['class' => 'fa fa-chevron-circle-right']), [
+            echo $this->Html->link(__('Next') . $this->Html->tag('i', '', ['class' => 'fa fa-chevron-circle-right fa-ml-3px']), [
                 'action' => 'view', $next->id], ['class' => 'btn btn-secondary pull-right next-link',
                 'escape' => false]
             );

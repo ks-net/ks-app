@@ -12,7 +12,9 @@ body {/*font-family:"Open Sans";font-size:14px;*/}
 */
 
 .fa-middle {vertical-align: middle!important;}
-
+.fa-mr-3px {margin-right:3px;}
+.fa-ml-3px {margin-left:3px;}
+.fa-sm {font-size:0.55em;}
 
 
 /*
@@ -20,13 +22,21 @@ body {/*font-family:"Open Sans";font-size:14px;*/}
 */
 
 .asc:after {
-    content: " \2193";
+    content: " \f149";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none!important;
 }
 .desc:after {
-    content: " \2191";
+    content: " \f148";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none!important;
 }
 
-.flash-msg {padding:20px 6px;}
+.flash-msg {min-height:0px;}
 
 .form {font-weight:300;font-size:14px;line-height:18px;font-family:Arial,sans-serif;}
 
@@ -56,6 +66,7 @@ body {/*font-family:"Open Sans";font-size:14px;*/}
     color: #C3232D;
 }
 
+.inactive {color:#A9A9A9;}
 
 .help {cursor:help;}
 

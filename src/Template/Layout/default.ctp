@@ -32,9 +32,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('script') ?>
     </head>
     <body style="margin-top:50px;">
-        <div class="row clearfix">    
-            <div class="container-fluid">   
-                <?= $this->element('navbar') ?>      
+        <div class="row clearfix">
+            <div class="container-fluid">
+                <?= $this->element('navbar') ?>
             </div>
         </div>
 
@@ -42,32 +42,32 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="container flash-msg">
                 <?= $this->Flash->render() ?>
             </div>
-        <?php endif; ?>    
+        <?php endif; ?>
 
         <div class="main">
-            <?= $this->fetch('content') ?>      
+            <?= $this->fetch('content') ?>
         </div>
 
 
         <footer>
             <div class="jumbotron clearfix">
-                <div class="container">  
+                <div class="container">
                     <h1 class="display-3">Hello, world!</h1>
                     <p>Just a little demo here...</p>
                     <p><a class="btn btn-primary btn-lg" href="#" role="button">Push Up Again  <span class="fa fa-level-up" aria-hidden="true"></span></a></p>
 
                     <p>and more here...
                         ::  <a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a> ::
-                        <a target="_blank" href="http://api.cakephp.org/3.0/">API</a>  :: 
-                    </p> 
+                        <a target="_blank" href="http://api.cakephp.org/3.0/">API</a>  ::
+                    </p>
                     <span><img src="http://qrfree.kaywa.com/?l=1&s=4&d=http://ks-net.gr/" ></span>
-                    <p class="pull-right text-muted">          
+                    <p class="pull-right text-muted">
                         <span class="fa fa-facebook-square fa-3x"></span>
                         <span class="fa fa-twitter-square fa-3x"></span>
                         <span class="fa fa-google-plus-square fa-3x"></span>
                         <span class="fa fa-linkedin-square fa-3x"></span>
                     </p>
-                </div>       
+                </div>
             </div>
         </footer>
 
@@ -83,6 +83,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             });
         </script>
 
-        <?= $this->fetch('scriptBottom') ?>     
+        <?= $this->fetch('scriptBottom') ?>
     </body>
 </html>

@@ -14,7 +14,6 @@ class ArticlesController extends AppController {
     public function initialize() {
         parent::initialize();
         $this->loadComponent('Paginator');
-        $this->loadComponent('Csrf');
     }
 
     /**
